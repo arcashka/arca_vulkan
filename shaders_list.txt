@@ -1,0 +1,2 @@
+core/shaders/shader.frag
+core/shaders/shader.vert
