@@ -1,7 +1,9 @@
 #pragma once
 
+#include <string>
+
 namespace arca::core::settings {
 
-constexpr bool USE_GRAPHICAL_OUTPUT { @ARCA_USE_GRAPHICAL_OUTPUT@ };
+const std::string MAIN_WINDOW_NAME { "@ARCA_MAIN_WINDOW_NAME@" };
 
 }
