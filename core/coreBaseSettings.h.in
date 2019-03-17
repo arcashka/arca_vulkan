@@ -1,0 +1,7 @@
+#pragma once
+
+namespace arca::core::settings {
+
+constexpr bool USE_GRAPHICAL_OUTPUT { @ARCA_USE_GRAPHICAL_OUTPUT@ };
+
+}
