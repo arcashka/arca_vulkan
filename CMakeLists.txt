@@ -11,7 +11,7 @@ include(window/window.cmake)
 include(core/core.cmake)
 
 add_executable(arca
-    "${PROJECT_SOURCE_DIR}/main.cpp"
+	"${PROJECT_SOURCE_DIR}/main.cpp"
 )
 
 target_link_libraries(arca
