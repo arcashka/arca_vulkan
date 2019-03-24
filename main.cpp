@@ -1,5 +1,5 @@
-#include "core/source/core.h"
-#include "window/header/iwindow.h"
+#include "arca/core/source/core.h"
+#include "arca/window/header/iwindow.h"
 
 int main()
 {
