@@ -2,7 +2,7 @@
 
 #include <memory>
 
-namespace arca::core
+namespace arca::window
 {
 
 class IWindow

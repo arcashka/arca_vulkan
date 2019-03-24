@@ -1,0 +1,9 @@
+#pragma once
+
+#include <string>
+
+namespace arca::window::settings {
+
+const std::string MAIN_WINDOW_NAME { "@ARCA_MAIN_WINDOW_NAME@" };
+
+}

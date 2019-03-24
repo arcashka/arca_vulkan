@@ -1,6 +1,6 @@
 #include "core.h"
 
-#include "window/iwindow.h"
+#include "iwindow.h"
 
 #include <assert.h>
 
@@ -20,12 +20,10 @@ void Core::initialize(const CoreInitializer & initializer)
 {
 	assert(!instance && "initialize must be called once!");
 
-	std::shared_ptr<IWindow> window = IWindow::createWindow();
-
-	instance = new Core(window);
+	instance = new Core(initializer.window);
 }
 
-Core::Core(std::shared_ptr<IWindow> window)
+Core::Core(std::shared_ptr<window::IWindow> window)
 	: window(window)
 {
 }

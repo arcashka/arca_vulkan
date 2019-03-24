@@ -4,6 +4,4 @@
 
 namespace arca::core::settings {
 
-const std::string MAIN_WINDOW_NAME { "@ARCA_MAIN_WINDOW_NAME@" };
-
 }

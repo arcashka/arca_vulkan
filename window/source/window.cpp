@@ -1,11 +1,11 @@
 #include "window.h"
 
-#include "coreBaseSettings.h"
+#include "windowBaseSettings.h"
 
 #define GLFW_INCLUDE_VULKAN
 #include <GLFW/glfw3.h>
 
-namespace arca::core {
+namespace arca::window {
 
 Window::Window()
 {

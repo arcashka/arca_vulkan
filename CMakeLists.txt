@@ -7,6 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(ARCA_USE_GRAPHICAL_OUTPUT true)
 set(ARCA_STATIC_SHADERS_FILE "${CMAKE_CURRENT_LIST_DIR}/shaders_list.txt")
 
+include(window/window.cmake)
 include(core/core.cmake)
 
 add_executable(arca
@@ -14,5 +15,6 @@ add_executable(arca
 )
 
 target_link_libraries(arca
-    core
+	window
+	core
 )

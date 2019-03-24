@@ -4,7 +4,7 @@
 
 struct GLFWwindow;
 
-namespace arca::core {
+namespace arca::window {
 
 class Window : public IWindow
 {

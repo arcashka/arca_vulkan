@@ -6,7 +6,7 @@
 
 #include "coreBaseSettings.h"
 
-namespace arca::core
+namespace arca::window
 {
 
 std::shared_ptr<IWindow> IWindow::createWindow()

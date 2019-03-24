@@ -1,9 +1,11 @@
 #include "core/source/core.h"
+#include "window/header/iwindow.h"
 
 int main()
 {
-	arca::core::Core::CoreInitializer initializer;
+	std::shared_ptr<arca::window::IWindow> window = arca::window::IWindow::createWindow();
+	arca::core::Core::CoreInitializer initializer { window };
 	arca::core::Core::initialize(initializer);
-	arca::core::Core * core = arca::core::Core::getInstance();
+	
 	return 0;
 }
