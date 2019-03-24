@@ -11,7 +11,7 @@ namespace arca::core {
 class Core
 {
 public:
-	static Core * getInstance();
+	static std::shared_ptr<Core> getInstance();
 
 	struct CoreInitializer
 	{

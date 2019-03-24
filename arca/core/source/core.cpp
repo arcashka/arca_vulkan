@@ -1,16 +1,16 @@
 #include "core.h"
 
-#include "iwindow.h"
-
 #include <assert.h>
+
+#include "iwindow.h"
 
 namespace arca::core {
 
 namespace {
-	static Core * instance = nullptr;
+	static std::shared_ptr<Core> instance = nullptr;
 }
 
-Core * Core::getInstance()
+std::shared_ptr<Core> Core::getInstance()
 {
 	assert(instance && "initialize must be called before getting instance!");
 	return instance;
@@ -20,7 +20,7 @@ void Core::initialize(const CoreInitializer & initializer)
 {
 	assert(!instance && "initialize must be called once!");
 
-	instance = new Core(initializer.window);
+	instance = std::shared_ptr<Core>(new Core(initializer.window));
 }
 
 Core::Core(std::shared_ptr<window::IWindow> window)

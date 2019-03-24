@@ -14,6 +14,5 @@ add_executable(arca
 )
 
 target_link_libraries(arca
-	window
-	core
+	arcaApplication
 )
