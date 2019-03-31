@@ -4,7 +4,7 @@
 #include "window.h"
 #endif
 
-#include "coreBaseSettings.h"
+#include "windowBaseSettings.h"
 
 namespace arca::window
 {
