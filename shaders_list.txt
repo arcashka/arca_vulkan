@@ -1,2 +1,2 @@
-core/shaders/shader.frag
-core/shaders/shader.vert
+arca/core/shaders/shader.frag
+arca/core/shaders/shader.vert

@@ -3,28 +3,40 @@
 
 function(add_compile_shaders_command ALL_SHADERS_FILE)
 
-	if (NOT WIN32)
-		message(ERROR "NOT IMPLEMENTED")
-		return()
-	endif()
-
 	set(SHADERS_DIR "${CMAKE_CURRENT_BINARY_DIR}/shaders")
-	set(COMPILE_SHADERS_FILE "${SHADERS_DIR}/compile_shaders.bat")
+	file(STRINGS "${ALL_SHADERS_FILE}" ALL_STATIC_SHADERS_LIST)
 	file(REMOVE_RECURSE "${SHADERS_DIR}")
 
-	file(STRINGS "${ALL_SHADERS_FILE}" ALL_STATIC_SHADERS_LIST)
-	get_filename_component(VULKAN_SDK_DIR ${Vulkan_INCLUDE_DIRS} DIRECTORY)
+	if (WIN32)
+		set(COMPILE_SHADERS_FILE "${SHADERS_DIR}/compile_shaders.bat")
 
-	foreach(SHADER ${ALL_STATIC_SHADERS_LIST})
-		file(APPEND ${COMPILE_SHADERS_FILE}
-			"${VULKAN_SDK_DIR}/Bin32/glslangValidator.exe -V ${CMAKE_SOURCE_DIR}/${SHADER}\n"
+		get_filename_component(VULKAN_SDK_DIR ${Vulkan_INCLUDE_DIRS} DIRECTORY)
+		foreach(SHADER ${ALL_STATIC_SHADERS_LIST})
+			file(APPEND ${COMPILE_SHADERS_FILE}
+				"${VULKAN_SDK_DIR}/Bin32/glslangValidator.exe -V ${CMAKE_SOURCE_DIR}/${SHADER}\n"
 		)
-	endforeach()
-	file(APPEND ${COMPILE_SHADERS_FILE} "pause")
+		endforeach()
 
-	add_custom_target(compile_shaders
-		COMMAND cmd /c "${COMPILE_SHADERS_FILE}"
-		WORKING_DIRECTORY "${SHADERS_DIR}"
-	)
+		file(APPEND ${COMPILE_SHADERS_FILE} "pause")
+
+		add_custom_target(compile_shaders
+			COMMAND cmd /c "${COMPILE_SHADERS_FILE}"
+			WORKING_DIRECTORY "${SHADERS_DIR}"
+		)
+	elseif (UNIX)
+		set(COMPILE_SHADERS_FILE "${SHADERS_DIR}/compile_shaders.sh")
+
+		get_filename_component(VULKAN_SDK_DIR ${Vulkan_INCLUDE_DIRS} DIRECTORY)
+		foreach(SHADER ${ALL_STATIC_SHADERS_LIST})
+			file(APPEND ${COMPILE_SHADERS_FILE}
+				"${VULKAN_SDK_DIR}/bin/glslangValidator -V ${CMAKE_SOURCE_DIR}/${SHADER}\n"
+		)
+		endforeach()
+
+		add_custom_target(compile_shaders
+			COMMAND sh "${COMPILE_SHADERS_FILE}"
+			WORKING_DIRECTORY "${SHADERS_DIR}"
+		)
+	endif()
 
 endfunction(add_compile_shaders_command)
