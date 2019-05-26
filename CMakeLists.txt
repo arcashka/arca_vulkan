@@ -3,6 +3,7 @@ project (ArcaVulkan)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+configure_file(${CMAKE_BINARY_DIR}/compile_commands.json ${CMAKE_SOURCE_DIR}/compile_commands.json)
 
 set(ARCA_USE_GRAPHICAL_OUTPUT true)
 set(ARCA_STATIC_SHADERS_FILE "${CMAKE_CURRENT_LIST_DIR}/shaders_list.txt")
