@@ -1,4 +1,4 @@
-configure_file("${CMAKE_CURRENT_LIST_DIR}/coreBaseSettings.h.in" "${CMAKE_CURRENT_BINARY_DIR}/include/core/coreBaseSettings.h")
+configure_file("${CMAKE_CURRENT_SOURCE_DIR}/coreBaseSettings.h.in" "${CMAKE_BINARY_DIR}/include/core/coreBaseSettings.h")
 
 find_package(Vulkan REQUIRED)
 

@@ -1,7 +1,5 @@
-configure_file("${CMAKE_CURRENT_LIST_DIR}/windowBaseSettings.h.in" "${CMAKE_CURRENT_BINARY_DIR}/include/window/windowBaseSettings.h")
+configure_file("${CMAKE_CURRENT_SOURCE_DIR}/windowBaseSettings.h.in" "${CMAKE_BINARY_DIR}/include/window/windowBaseSettings.h")
 find_package(Vulkan REQUIRED)
-
-set(WINDOW_LIB_HEADERS "${CMAKE_CURRENT_LIST_DIR}/header")
 
 if (ARCA_USE_GRAPHICAL_OUTPUT)
 	find_package(glfw3 REQUIRED)
@@ -21,7 +19,7 @@ if (ARCA_USE_GRAPHICAL_OUTPUT)
 		PUBLIC
 			"${CMAKE_CURRENT_LIST_DIR}/header"
 		PRIVATE
-			"${CMAKE_CURRENT_BINARY_DIR}/include/window"
+			"${CMAKE_BINARY_DIR}/include/window"
 			"${GLFW_INCLUDE_DIR}"
 			"${Vulkan_INCLUDE_DIRS}"
 			"${CMAKE_CURRENT_BINARY_DIR}"

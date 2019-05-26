@@ -11,6 +11,10 @@ namespace arca::core {
 class Core
 {
 public:
+	Core() = delete;
+	Core(const Core &) = delete;
+	Core & operator=(Core &) = delete;
+
 	static std::shared_ptr<Core> getInstance();
 
 	struct CoreInitializer
@@ -21,10 +25,7 @@ public:
 	static void initialize(const CoreInitializer & initializer);
 
 private:
-	Core() {}
 	Core(std::shared_ptr<window::IWindow> window);
-	Core(const Core &) {}
-	Core & operator=(Core &) {}
 
 private:
 	std::shared_ptr<window::IWindow> window;

@@ -3,7 +3,7 @@
 
 function(add_compile_shaders_command ALL_SHADERS_FILE)
 
-	set(SHADERS_DIR "${CMAKE_CURRENT_BINARY_DIR}/shaders")
+	set(SHADERS_DIR "${CMAKE_BINARY_DIR}/shaders")
 	file(STRINGS "${ALL_SHADERS_FILE}" ALL_STATIC_SHADERS_LIST)
 	file(REMOVE_RECURSE "${SHADERS_DIR}")
 
